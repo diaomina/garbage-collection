@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+
+	<!-- 配置自定扫描的包 -->
+	<context:component-scan base-package="com.soft"
+		use-default-filters="false">
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+
+	<!-- 配置视图解析器: 如何把 handler 方法返回值解析为实际的物理视图 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/pages/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+
+
+
+
+	<!--局部拦截器配置， 配置拦截器不作用的路径 ,要先配置<mvc:mapping path="/**" /> ，否则报错，不能少这个 -->
+
+	<!-- <mvc:interceptors> <mvc:interceptor> <mvc:mapping path="/**" /> <mvc:exclude-mapping 
+		path="/login/**"/> <mvc:exclude-mapping path="/static/**"/> <bean class="com.softjx.interceptor.ActionMethodInterceptor"></bean> 
+		</mvc:interceptor> </mvc:interceptors> -->
+
+
+
+	<!-- 处理静态资源 -->
+	<mvc:default-servlet-handler />
+
+
+	<!-- 配置 MultipartResolver 上传文件 -->
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="UTF-8"></property>
+		<property name="maxUploadSize" value="10240000"></property>
+	</bean>
+
+
+
+
+
+	<!-- 默认配置方案。 并提供了：数据绑定支持，@NumberFormatannotation支持， @DateTimeFormat支持，@Valid支持，读写XML的支持（JAXB）， 
+		读写JSON的支持（Jackson）。 后面，我们处理响应ajax请求时，就使用到了对json的支持。 -->
+	<mvc:annotation-driven></mvc:annotation-driven>
+
+
+
+
+</beans>
