@@ -3,7 +3,11 @@
 #### 介绍
 基于SSM的垃圾回收项目
 
-[演示网址](http://39.108.5.98/garbage-collection/distinguish/toDistinguish )
+[演示网址](http://39.108.5.98/garbage-collection/distinguish/toDistinguish )（已失效）
+
+觉得对你有帮助的话请作者喝杯咖啡趴~Thanks♪(･ω･)ﾉ
+
+![微信收款码](https://cdn.jsdelivr.net/gh/diaomina/project-images@master/%E6%94%B6%E6%AC%BE%E7%A0%81/wx.jpg)
 
 本项目在线上可以快速帮助用户对垃圾类型进行查询和识别，提供了文字查询和图 片识别方式。并且实现垃圾上门回收功能，用户可以在客户端预约垃圾上门回收，根据回收的 物件获取对应的积分，积分可以在环保商城中使用。项目采用MVC 模式，前端界面使用Bootstrap和layer辅助构建完成，表现层采用SpringMVC 框架开发，前后端采用Ajax进行 交互，业务层业务模块均有专门的接口和实现类，数据访问层采用 MyBatis 实现，逆向生成 model和dao的功能代码。
 
